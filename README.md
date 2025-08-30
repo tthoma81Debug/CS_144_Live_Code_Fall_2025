@@ -22,7 +22,7 @@ is usually something that gets covered in later classes. </p>
   <li>Click the green 'Code' button and then 'Download Zip'</li>
   <li>Right click the zipped file that downloads and extract it (should be an option for that. might have to dig through the menu a little)</li>
   <li>open the extracted folder and find the file you need</li>
-  <li>copy/pate that file into your project</li>
+  <li>copy/paste that file into your project</li>
 </ul>
 <h3>But</h3>
 <p>DON'T CLICK ANYTHING UNDER THE WORD 'COMMIT.' OR IN A COLUMN THAT SAYS COMMIT. WATCH OUT FOR THAT WORD LIKE...IDK. Why? Well, the code will be highlighting all red and green</p>
