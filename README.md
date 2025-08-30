@@ -2,6 +2,7 @@
 <p>Ok, listen. This is where the coding examples go. I'll update these things in class constantly, so if you hear me say "i just pushed the code" that means i just updated whats here
 with what's on my laptop.</p>
 <h3>tldr: Click the folders on the left, find the code. Copy/paste. Avoid columns that say "Commit"</h3>
+<h3>If you see red and green highlighting, go back and try again. That code won't work.</h3>
 <p>Ok so here's the thing. This website might look super confusing when you first see it. That's fine. Learning to connect to these tools and sync software
 is usually something that gets covered in later classes. </p>
 <p>ok so, now that you know "what it is" Let me answer the question you are probably wondering "How do I get the code you are working on" or "How do i find that example."
@@ -31,3 +32,5 @@ is usually something that gets covered in later classes. </p>
 
 <p>ok, now, sometimes things don't work right. If it doesn't go right, email me or show me or come to office hours. I'd put it here but well....the spammers will never let me here the end of it.</p>
 <p>But I can tell you it's at the top of the syllabus, which is at the top of the Administrative Module in Canvas.</p>
+<p>but whatever you do, do NOT under any circumstances, share this page with an English instructor. Why? well umm, reasons. lots of reasons, fragments, capitalization catastrophes, run-ons, starting sentences with conjunctions, references to the second person.  it's not gonna look nice, but hey, if you're still reading this, than maybe your coding knowledge improved, or your confidence in learning to code, so yeah, it's good. But oh, i should say, the English teacher is right. For formal stuff, you want all the stuff. That way you look smart, even though we don't really talk that way, especially for like resumes and formal business communications. </p>
+<p>peace out</p>
