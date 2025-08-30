@@ -1,6 +1,7 @@
 <h1>Hey! CS 144 Students in Dr. Thomas's Class. Yes You!</h1>
 <p>Ok, listen. This is where the coding examples go. I'll update these things in class constantly, so if you hear me say "i just pushed the code" that means i just updated whats here
 with what's on my laptop.</p>
+<h3>tldr: Click the folders on the left, find the code. Copy/pate. Avoid columns that say "Commit"</h3>
 <p>Ok so here's the thing. This website might look super confusing when you first see it. That's fine. Learning to connect to these tools and sync software
 is usually something that gets covered in later classes. </p>
 <p>ok so, now that you know "what it is" Let me answer the question you are probably wondering "How do I get the code you are working on" or "How do i find that example."
