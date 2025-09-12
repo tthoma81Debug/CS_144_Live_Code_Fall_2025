@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+      Scanner scnr = new Scanner(System.in);
+      int num1;
+      int num2;
+      int num3;
+      int num4;
+      int product;
+      int average;
+      double decimalProduct;
+      double decimalAverage;
+
+      double num5;
+      double num6;
+      double num7;
+      double num8;
+
+      num1 = scnr.nextInt();
+      num2 = scnr.nextInt();
+      num3 = scnr.nextInt();
+      num4 = scnr.nextInt();
+
+      //num5 = scnr.nextDouble();
+      //num6 = scnr.nextDouble();
+      //num7 = scnr.nextDouble();
+      //num8 = scnr.nextDouble();
+
+      
+      product = num1 * num2 * num3 * num4;
+      average = (num1 + num2 + num3 + num4) / 4;
+
+      //double math
+      num5 = num1 * 1.0;
+      num6 = num2 * 1.0;
+      num7 = num3 * 1.0;
+      num8 = num4 * 1.0;
+
+      decimalProduct = num5 * num6 * num7 * num8;
+      decimalAverage = (num5 + num6 + num7 + num8) / 4;
+
+
+      System.out.println(product + " " + average); //should print int product and average
+      //System.out.println(decimalProduct + " " + decimalAverage);
+      //NEW!!! NOW WITH 3 DECIMAL PLACES :)
+      System.out.printf("%.3f", decimalProduct);
+      System.out.print(" ");
+      System.out.printf("%.3f", decimalAverage);
+      System.out.println("");
+      
+
+   }
+}
