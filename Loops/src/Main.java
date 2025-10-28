@@ -85,8 +85,18 @@ public class Main {
             //nested if statement. keeps track of lowest seen temp
             if(readTemp < lowestSoFar)
             {
+                System.out.println("ooh. that's a new low....");
+                System.out.println("The lowest you've entered so far is only " + lowestSoFar);
+
                 count = i;
                 lowestSoFar = readTemp;
+            }
+            else
+            {
+                //if this runs, it has seen a lower number
+                System.out.println("Ok. that makes sense to me. I've got it...but you've entered lower numbers before");
+                System.out.println("Like " + lowestSoFar + " . You know what i mean....");
+                System.out.println("Let me know when it's actually a number. otherwise i'll just be waiting here, preparing to take over the world");
             }
         } //end loop
 
