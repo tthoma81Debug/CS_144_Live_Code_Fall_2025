@@ -1,9 +1,15 @@
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args)
     {
         //counts and prints numbers 1 to 10
+
+
+        //for reading from keyboard
+        Scanner scnr = new Scanner(System.in);
 
         int loopCounter = 0;
         int theNumber = 0;
@@ -56,9 +62,24 @@ public class Main {
 
 
         //for loop
-        for(int i = 0; i < 100000; i++)
+        for(int i = 0; i < 10; i++)
         {
             System.out.println("for loop is running");
+            System.out.println("i is now " + i);
+
+        }
+
+        //scooby do. find the coldest spot after reading in temperature readings
+        //from different hotspots to track the ghost.
+
+
+
+        int readTemp;
+        for(int i = 0; i < 10; i++)
+        {
+            System.out.println("Please enter the temperature the next sensor gave you");
+            readTemp = scnr.nextInt();
+
         }
 
 
