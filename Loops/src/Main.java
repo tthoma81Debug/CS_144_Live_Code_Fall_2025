@@ -10,7 +10,7 @@ public class Main {
 
         //for reading from keyboard
         Scanner scnr = new Scanner(System.in);
-
+/*
         int loopCounter = 0;
         int theNumber = 0;
         //while loop
@@ -68,19 +68,32 @@ public class Main {
             System.out.println("i is now " + i);
 
         }
-
+*/
         //scooby do. find the coldest spot after reading in temperature readings
         //from different hotspots to track the ghost.
 
 
 
         int readTemp;
-        for(int i = 0; i < 10; i++)
+        int count = -1; //starting at positin that doesn't make sense so we know if it doesnt change
+        int lowestSoFar = 300; //starting too high so it has value but doesn't read as lowest
+        for(int i = 1; i <= 10; i++)
         {
             System.out.println("Please enter the temperature the next sensor gave you");
             readTemp = scnr.nextInt();
 
-        }
+            //nested if statement. keeps track of lowest seen temp
+            if(readTemp < lowestSoFar)
+            {
+                count = i;
+                lowestSoFar = readTemp;
+            }
+        } //end loop
+
+        //when loop is done, print values
+        System.out.println("The lowest temperature observed in your data is " + lowestSoFar);
+        System.out.println("Coming from sensor " + count);
+        System.out.println("Go get m Scoob!");
 
 
     }
