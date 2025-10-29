@@ -73,6 +73,31 @@ public class Main {
         //from different hotspots to track the ghost.
 
 
+        //new stuff. username example. counting characters
+        String enteredName = "";
+        System.out.println("Who on the mystery team are you?");
+        enteredName = scnr.nextLine();
+        int numLettersName = 0;
+        System.out.println("Welcome " + enteredName);
+
+        //count first character
+
+        //if character is a letter
+
+        for(int i = 0; i < enteredName.length(); i++)
+        {
+            if(Character.isLetter(enteredName.charAt(i)))
+            {
+                System.out.println("next letter of your name is " + enteredName.charAt(i));
+                numLettersName++;
+            }
+
+            System.out.println("i is " + i);
+        }
+
+        System.out.println("Your name contains " + numLettersName + " characters");
+
+
 
         int readTemp;
         int count = -1; //starting at positin that doesn't make sense so we know if it doesnt change
