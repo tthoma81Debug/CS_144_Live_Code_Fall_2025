@@ -90,6 +90,13 @@ public class Main {
             {
                 System.out.println("next letter of your name is " + enteredName.charAt(i));
                 numLettersName++;
+
+                if(numLettersName > 15)
+                {
+                    System.out.println("That name is too long for us to process because we are lazy + cheap on our cloud plan");
+                    //break;
+                    continue;
+                }
             }
 
             System.out.println("i is " + i);
