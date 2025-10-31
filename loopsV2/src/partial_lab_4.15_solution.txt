@@ -1,0 +1,40 @@
+//will solve the rest later. This is what we covered
+//on 10/31/25
+
+import java.util.Scanner;
+
+public class LabProgram {
+   public static void main(String[] args) {
+   Scanner scnr = new Scanner(System.in);
+   int enteredNum;
+   int max = -1;
+   int average;
+   int counter = 0;
+   int numberOfItems;
+   int sum = 0;
+
+   enteredNum = scnr.nextInt();
+
+   while(enteredNum >= 0)
+   {
+      enteredNum = scnr.nextInt();
+
+      if(enteredNum > max)
+      {
+         max = enteredNum;
+      }
+
+      counter++;
+      sum+= enteredNum;
+   }
+
+   numberOfItems = counter;
+
+   average = enteredNum;
+
+   System.out.println(max);
+   System.out.println(average);
+
+
+   }
+}
