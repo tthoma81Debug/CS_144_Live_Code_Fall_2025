@@ -1,23 +1,25 @@
-//will solve the rest later. This is what we covered
-//on 10/31/25
-
 import java.util.Scanner;
 
 public class LabProgram {
    public static void main(String[] args) {
    Scanner scnr = new Scanner(System.in);
-   int enteredNum;
+   int enteredNum = 9999;
    int max = -1;
-   int average;
+   double average;
    int counter = 0;
    int numberOfItems;
    int sum = 0;
 
-   enteredNum = scnr.nextInt();
 
    while(enteredNum >= 0)
    {
       enteredNum = scnr.nextInt();
+
+      //don't add if last num is -1
+      if(enteredNum < 0)
+      {
+         break;
+      }
 
       if(enteredNum > max)
       {
@@ -30,10 +32,19 @@ public class LabProgram {
 
    numberOfItems = counter;
 
-   average = enteredNum;
+   //more explicit casting
+   double decimalSum = (double)sum;
+   double decimalNumberOfItems = (double)numberOfItems;
 
-   System.out.println(max);
-   System.out.println(average);
+   average = decimalSum / decimalNumberOfItems;
+
+
+   //debugging
+   //System.out.println("Sum is " + decimalSum);
+   //System.out.println("Total Number of Items is " + numberOfItems);
+
+   System.out.print(max + " ");
+   System.out.printf("%.2f\n", average);
 
 
    }
