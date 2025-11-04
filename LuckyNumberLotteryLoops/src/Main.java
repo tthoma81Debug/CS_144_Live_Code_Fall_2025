@@ -4,6 +4,11 @@ public class Main {
     public static void main(String[] args)
     {
 
+        //introducing.....
+
+        //arrays
+        int[] solutionNumbers = new int[6];
+
         //setup variables
         int firstNumber = -1;
         int secondNumber = -1;
@@ -11,6 +16,20 @@ public class Main {
         int fourthNumber = -1;
         int fifthNumber = -1;
         int sixthNumber = -1;
+
+        //equivalent for array
+        solutionNumbers[0] = -1;
+        solutionNumbers[1] = -1;
+        solutionNumbers[2] = -1;
+        solutionNumbers[3] = -1;
+        solutionNumbers[4] = -1;
+        solutionNumbers[5] = -1;
+
+        //or we could now use a loop!
+        for(int i = 0; i < 6; i++)
+        {
+            solutionNumbers[i] = - 1;
+        }
 
         //for drawn ticket
         int firstDraw = -1;
