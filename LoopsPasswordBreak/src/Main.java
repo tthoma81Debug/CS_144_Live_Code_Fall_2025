@@ -13,28 +13,31 @@ public class Main
         //setup
         Random randGen = new Random();
         int ourGuess = -1;
-        int userPin = randGen.nextInt(10000); //randomly generated
+        int userPin = randGen.nextInt(2000001); //randomly generated
         //System.out.println("userPin is " + userPin);
 
         //loop, tries each number 0000 through 9999
         //if it matches, outputs match
 
-        //check entire password space (0000 - 9999)
+        //check entire password space
         int counter = 0;
+        int nextGuess = 0;
         while(ourGuess != userPin) //as long as we don't have the password
         {
             ourGuess = counter;
-            if(counter == userPin)
+            nextGuess = randGen.nextInt(2000001);
+            if(nextGuess == userPin)
             {
                 //we found it!
                 System.out.println("Found it!");
                 System.out.println("userPin is " + userPin);
-                System.out.println("ourGuess is " + ourGuess);
+                System.out.println("nextGuess is " + nextGuess);
+
                 break;
             }
             else
             {
-                System.out.println("ourGuess is " + ourGuess + " which is not it");
+                System.out.println("nextGuess is " + nextGuess + " which is not it and is guess number " + counter);
             }
 
             counter++;
