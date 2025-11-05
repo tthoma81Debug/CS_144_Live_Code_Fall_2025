@@ -8,6 +8,7 @@ public class Main {
 
         //arrays
         int[] solutionNumbers = new int[6];
+        int[] ticketDraw = new int[6];
 
         //or we could now use a loop!
         for(int i = 0; i < 6; i++)
@@ -28,13 +29,12 @@ public class Main {
 
         System.out.println("Solution: " + firstNumber + " " + secondNumber + " " + thirdNumber + " " + fourthNumber + " " + fifthNumber + " " + sixthNumber);
 
-        //generate ticket draw
-        firstDraw = theGenerator.nextInt(49) + 1;
-        secondDraw = theGenerator.nextInt(49) + 1;
-        thirdDraw = theGenerator.nextInt(49) + 1;
-        fourthDraw = theGenerator.nextInt(49) + 1;
-        fifthDraw = theGenerator.nextInt(49) + 1;
-        sixthDraw = theGenerator.nextInt(49) + 1;
+        //generate solution $$$$$$$$$$$$
+        for(int i = 0; i < 6; i++)
+        {
+            //whatever is here will run 6 times.
+            ticketDraw[i] = theGenerator.nextInt(49) + 1;
+        }
 
         //show ticket draw
         System.out.println("Draw: " + firstDraw + " " + secondDraw + " " + thirdDraw + " " + fourthDraw + " " + fifthDraw + " " + sixthDraw);
