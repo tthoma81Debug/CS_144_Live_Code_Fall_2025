@@ -5,6 +5,12 @@ public class Main {
     {
 
         //introducing.....
+        int locationMatches = 0;
+        int locationMatchValue = 5; //for five dollars
+        int locationMatchTotal = 0;
+        int normalMatchTotal = 0;
+        int normalMatchValue = 2;
+
 
         //arrays
         int[] solutionNumbers = new int[6];
@@ -72,16 +78,22 @@ public class Main {
                     {
                         //then we have number and number position match
                         System.out.println("NUMBER MATCH " + " in spot " + i);
+                        locationMatches++;
                     }
                 }
-               
+
             }
         } //end exterior loop.
 
-        System.out.println("Total Matches: " + totalMatches);
+        System.out.println("Total Normal Matches: " + totalMatches);
+        System.out.println("Total LOCATION!! Matches: " + locationMatches);
 
         //calculate winnings
-        winnings = totalMatches * 2;
+        normalMatchTotal = totalMatches * normalMatchValue;
+        locationMatchTotal = locationMatches * locationMatchValue;
+
+
+        winnings = normalMatchTotal + locationMatchTotal;
 
         System.out.println("YOU WON!!! $" + winnings);
 
