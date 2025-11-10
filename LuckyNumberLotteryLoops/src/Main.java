@@ -9,9 +9,16 @@ public class Main {
         int locationMatchValue = 5; //for five dollars
         int locationMatchTotal = 0;
         int normalMatchTotal = 0;
+        int locationMatchesLog = 0;
+        int totalMatchesLog = 0;
         int normalMatchValue = 2;
         int totalMatches = 0;
         int winnings = 0;
+        int ticketPrice = 2;
+        int revenue = 0;
+        int expense = 0;
+        int profit = 0;
+        boolean hitJackpotLog = false;
         int jackpotValue = 1000000; //1 mil
 
 
@@ -44,6 +51,9 @@ public class Main {
         {
             //TO DO MONDAY:
             //SET TICKET AMOUNTS TO 0 EACH TIME. OBSERVE COUNT
+            //reset counts and add matches from previous run
+            totalMatches = 0;
+            locationMatches = 0;
 
 
             //generate ticket draw
@@ -84,6 +94,12 @@ public class Main {
                     hitJackpot = false;
                     break; //no point in checking further
                 }
+
+            }
+
+            if(hitJackpot == true) //if it it still true after the whole loop
+            {
+                hitJackpotLog = true; //log the jackpot
             }
 
 
@@ -126,8 +142,24 @@ public class Main {
             System.out.println("location match total is " + locationMatchTotal);
             System.out.println("YOU ARE ON A ROLL! SO FAR, YOU'VE WON $" + winnings);
 
+            //log totalMatches and locationMatches
+            totalMatchesLog += totalMatches;
+            locationMatchesLog += locationMatches;
+
+
         } //end ticket generation loop
+        System.out.println("You have " + totalMatchesLog + " total winning numbers");
+        System.out.println("AND you have " + locationMatchesLog  + " total MATCHING winning numbers");
+        if(hitJackpotLog == true)
+        {
+            System.out.println("INCLUDING JACKPOT!!!!!");
+        }
         System.out.println("WOW! IN TOTAL, YOU'VE WON $" + winnings);
+
+        revenue = ticketPrice * 1000000;
+        expense = winnings;
+        profit = revenue - expense;
+        System.out.println("Casino made " + profit);
 
     }
 }
