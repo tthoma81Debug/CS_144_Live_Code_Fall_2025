@@ -6,12 +6,12 @@ public class Main {
 
         //introducing.....
         int locationMatches = 0;
-        int locationMatchValue = 5; //for five dollars
+        int locationMatchValue = 8; //for five dollars
         int locationMatchTotal = 0;
         int normalMatchTotal = 0;
         int locationMatchesLog = 0;
         int totalMatchesLog = 0;
-        int normalMatchValue = 2;
+        int normalMatchValue = 1;
         int totalMatches = 0;
         int winnings = 0;
         int ticketPrice = 2;
@@ -25,6 +25,8 @@ public class Main {
         //arrays
         int[] solutionNumbers = new int[6];
         int[] ticketDraw = new int[6];
+        int[] cashAwards = new int[1000000];
+        int[] topFiveWinners = new int[5];
 
         //or we could now use a loop!
         for(int i = 0; i < 6; i++)
@@ -52,8 +54,10 @@ public class Main {
             //TO DO MONDAY:
             //SET TICKET AMOUNTS TO 0 EACH TIME. OBSERVE COUNT
             //reset counts and add matches from previous run
+            int currentUserWinnings = 0;
             totalMatches = 0;
             locationMatches = 0;
+
 
 
             //generate ticket draw
@@ -140,12 +144,17 @@ public class Main {
 
             System.out.println("normal match total is " + normalMatchTotal);
             System.out.println("location match total is " + locationMatchTotal);
-            System.out.println("YOU ARE ON A ROLL! SO FAR, YOU'VE WON $" + winnings);
+            //System.out.println("YOU ARE ON A ROLL! SO FAR, YOU'VE WON $" + winnings);
 
             //log totalMatches and locationMatches
             totalMatchesLog += totalMatches;
             locationMatchesLog += locationMatches;
 
+            //calculate and save current user winnings
+            currentUserWinnings = normalMatchTotal + locationMatchTotal;
+            System.out.println("Current User Winnings: " + currentUserWinnings);
+            //and stash in array so we can find top winners later
+            cashAwards[q] = currentUserWinnings;
 
         } //end ticket generation loop
         System.out.println("You have " + totalMatchesLog + " total winning numbers");
@@ -159,7 +168,82 @@ public class Main {
         revenue = ticketPrice * 1000000;
         expense = winnings;
         profit = revenue - expense;
-        System.out.println("Casino made " + profit);
+        System.out.println("Casino made $" + profit);
+
+        System.out.println("Now lets see who won too much and how much they won");
+        //lets find the top winner
+        int highestSeenSoFar = -1;
+        int userNumber = 0;
+
+        for(int i = 0; i < 1000000; i++)
+        {
+            if(cashAwards[i] > highestSeenSoFar) //if we are looking at something larger than we've seen so far
+            {
+                highestSeenSoFar = cashAwards[i]; //lets say it's the largest. we'll replace later if necessary
+                userNumber = i; //track location
+                topFiveWinners[0] = userNumber;
+            }
+        }
+
+        //now lets find the second highest winner
+        userNumber = 0;
+        highestSeenSoFar = 0;
+        for(int i = 0; i < 1000000; i++)
+        {
+            if(cashAwards[i] > highestSeenSoFar && i != topFiveWinners[0]) //if we are looking at something larger than we've seen so far
+            {
+                highestSeenSoFar = cashAwards[i]; //lets say it's the largest. we'll replace later if necessary
+                userNumber = i; //track location
+                topFiveWinners[1] = userNumber;
+            }
+        }
+
+        userNumber = 0;
+        highestSeenSoFar = 0;
+        for(int i = 0; i < 1000000; i++)
+        {
+            if(cashAwards[i] > highestSeenSoFar && (i != topFiveWinners[0] && i != topFiveWinners[1])) //if we are looking at something larger than we've seen so far
+            {
+                highestSeenSoFar = cashAwards[i]; //lets say it's the largest. we'll replace later if necessary
+                userNumber = i; //track location
+                topFiveWinners[2] = userNumber;
+            }
+        }
+
+        userNumber = 0;
+        highestSeenSoFar = 0;
+        for(int i = 0; i < 1000000; i++)
+        {
+            if(cashAwards[i] > highestSeenSoFar && (i != topFiveWinners[0] && i != topFiveWinners[1] && i != topFiveWinners[2])) //if we are looking at something larger than we've seen so far
+            {
+                highestSeenSoFar = cashAwards[i]; //lets say it's the largest. we'll replace later if necessary
+                userNumber = i; //track location
+                topFiveWinners[3] = userNumber;
+            }
+        }
+
+        userNumber = 0;
+        highestSeenSoFar = 0;
+        for(int i = 0; i < 1000000; i++)
+        {
+            if(cashAwards[i] > highestSeenSoFar && (i != topFiveWinners[0] && i != topFiveWinners[1] && i != topFiveWinners[2] && i != topFiveWinners[3])) //if we are looking at something larger than we've seen so far
+            {
+                highestSeenSoFar = cashAwards[i]; //lets say it's the largest. we'll replace later if necessary
+                userNumber = i; //track location
+                topFiveWinners[4] = userNumber;
+            }
+        }
+
+
+       // System.out.println("The biggest winner is user " + userNumber);
+       // System.out.println("And that user won a total of $" + highestSeenSoFar);
+
+        //output top winners and their winnings
+        for(int i = 0; i < 5; i++)
+        {
+            int winnerID = topFiveWinners[i];
+            System.out.println("The next winner is user " + topFiveWinners[i] + " who won $" + cashAwards[winnerID]);
+        }
 
     }
 }
