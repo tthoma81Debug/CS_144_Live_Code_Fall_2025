@@ -1,6 +1,9 @@
 import java.util.Random;
 
 public class Main {
+
+    public enum CustomerFlags {BROKE, NORMAL, SUSPECT, CHEATER, PREFERRED};
+
     public static void main(String[] args)
     {
 
@@ -14,12 +17,22 @@ public class Main {
         int normalMatchValue = 1;
         int totalMatches = 0;
         int winnings = 0;
-        int ticketPrice = 2;
+        int ticketPrice = 3;
         int revenue = 0;
         int expense = 0;
         int profit = 0;
         boolean hitJackpotLog = false;
-        int jackpotValue = 1000000; //1 mil
+        int jackpotValue = 10000000; //10 mil
+
+        int oneMatchAward = locationMatchValue;
+        int twoMatchesAward = 10;
+        int threeMatchesAward = 500;
+        int fourMatchesAward = 500000;
+        int fiveMatchesAward = 1200000;
+        int totalMatchesAward = 0;
+
+        //Customer flags
+        CustomerFlags exampleFlag = CustomerFlags.BROKE;
 
 
         //arrays
@@ -27,6 +40,10 @@ public class Main {
         int[] ticketDraw = new int[6];
         int[] cashAwards = new int[1000000];
         int[] topFiveWinners = new int[5];
+        int[] locationMatchTotals = {0,0,0,0,0};
+        CustomerFlags[] theCustomerFlags = new CustomerFlags[1000000];
+
+        theCustomerFlags[0] = CustomerFlags.BROKE;
 
         //or we could now use a loop!
         for(int i = 0; i < 6; i++)
@@ -57,6 +74,7 @@ public class Main {
             int currentUserWinnings = 0;
             totalMatches = 0;
             locationMatches = 0;
+            totalMatchesAward = 0;
 
 
 
@@ -130,11 +148,39 @@ public class Main {
             System.out.println("Total Normal Matches: " + totalMatches);
             System.out.println("Total LOCATION!! Matches: " + locationMatches);
 
+
             //calculate winnings
             normalMatchTotal = totalMatches * normalMatchValue;
             locationMatchTotal = locationMatches * locationMatchValue;
 
-            winnings += (normalMatchTotal + locationMatchTotal);
+            //calculate winnings from location matches
+            if(locationMatches == 1)
+            {
+                totalMatchesAward += oneMatchAward;
+                locationMatchTotals[0]++;
+            }
+            else if(locationMatches == 2)
+            {
+                totalMatchesAward += twoMatchesAward;
+                locationMatchTotals[1]++;
+            }
+            else if(locationMatches == 3)
+            {
+                totalMatchesAward += threeMatchesAward;
+                locationMatchTotals[2]++;
+            }
+            else if(locationMatches == 4)
+            {
+                totalMatchesAward += fourMatchesAward;
+                locationMatchTotals[3]++;
+            }
+            else if(locationMatches == 5)
+            {
+                totalMatchesAward += fiveMatchesAward;
+                locationMatchTotals[4]++;
+            }
+
+            winnings += (normalMatchTotal + totalMatchesAward);
 
             //if won jackpot
             if (hitJackpot == true) {
@@ -143,15 +189,15 @@ public class Main {
             }
 
             System.out.println("normal match total is " + normalMatchTotal);
-            System.out.println("location match total is " + locationMatchTotal);
+            System.out.println("Total match award is " + totalMatchesAward);
             //System.out.println("YOU ARE ON A ROLL! SO FAR, YOU'VE WON $" + winnings);
 
             //log totalMatches and locationMatches
             totalMatchesLog += totalMatches;
-            locationMatchesLog += locationMatches;
+            locationMatchesLog += totalMatchesAward;
 
             //calculate and save current user winnings
-            currentUserWinnings = normalMatchTotal + locationMatchTotal;
+            currentUserWinnings = normalMatchTotal + totalMatchesAward;
             System.out.println("Current User Winnings: " + currentUserWinnings);
             //and stash in array so we can find top winners later
             cashAwards[q] = currentUserWinnings;
@@ -237,6 +283,14 @@ public class Main {
 
        // System.out.println("The biggest winner is user " + userNumber);
        // System.out.println("And that user won a total of $" + highestSeenSoFar);
+
+        //output total matches
+
+        for(int i = 0; i < 5; i++)
+        {
+            System.out.println("Total Matches where " + (i+1) + " matches exist: " + locationMatchTotals[i]);
+        }
+
 
         //output top winners and their winnings
         for(int i = 0; i < 5; i++)
