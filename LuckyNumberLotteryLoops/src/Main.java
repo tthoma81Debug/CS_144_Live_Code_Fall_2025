@@ -25,10 +25,10 @@ public class Main {
         int jackpotValue = 10000000; //10 mil
 
         //flag ranges
-        final int preferredRange = 500000;
-        final int cheaterRange = 100000;
-        final int suspectRange = 50000;
-        final int normalRange = 10000;
+        final int preferredRange = 100000;
+        final int cheaterRange = 30;
+        final int suspectRange = 20;
+        final int normalRange = 10;
 
         //flag counts
         int preferredRangeLog = 0;
@@ -55,9 +55,41 @@ public class Main {
         int[] cashAwards = new int[1000000];
         int[] topFiveWinners = new int[5];
         int[] locationMatchTotals = {0,0,0,0,0};
+        int[][] luckyNumbers = new int[1000][1000];
+
+        //get random setup
+        Random theGenerator = new Random();
+
+
         CustomerFlags[] theCustomerFlags = new CustomerFlags[1000000];
 
         theCustomerFlags[0] = CustomerFlags.BROKE;
+
+
+        //prepareLuckyNumbers
+        //For every row
+        for(int i = 0; i < 1000; i++)
+        {
+            //for every column
+            for(int r = 0; r < 1000; r++)
+            {
+                luckyNumbers[i][r] = theGenerator.nextInt(49) + 1;
+            }
+        }
+
+
+        //lets see the lucky numbers
+        for(int i = 0; i < 1000; i++)
+        {
+            //for every column
+            System.out.println("Row " + i);
+            for(int r = 0; r < 1000; r++)
+            {
+                System.out.println("Column " + r);
+                System.out.println( luckyNumbers[i][r]);
+            }
+        }
+
 
         //or we could now use a loop!
         for(int i = 0; i < 6; i++)
@@ -65,8 +97,7 @@ public class Main {
             solutionNumbers[i] = - 1;
         }
 
-        //get random setup
-        Random theGenerator = new Random();
+
 
         //generate solution $$$$$$$$$$$$
         System.out.print("Solution: ");
@@ -346,6 +377,12 @@ public class Main {
             System.out.println("The next winner is user " + topFiveWinners[i] + " who won $" + cashAwards[winnerID]);
             System.out.println("The winners flags are " + theCustomerFlags[winnerID]);
         }
+
+        System.out.println("Total users in flagged as preferred " + preferredRangeLog);
+        System.out.println("Total users in flagged as cheaters " + cheaterRangeLog);
+        System.out.println("Total users in flagged as suspect " + suspectRangeLog);
+        System.out.println("Total users in flagged as normal " + normalRangeLog);
+        System.out.println("Total users in flagged as broke " + brokeRangeLog);
 
     }
 }
