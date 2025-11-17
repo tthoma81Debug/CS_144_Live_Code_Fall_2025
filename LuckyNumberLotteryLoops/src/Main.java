@@ -24,6 +24,20 @@ public class Main {
         boolean hitJackpotLog = false;
         int jackpotValue = 10000000; //10 mil
 
+        //flag ranges
+        final int preferredRange = 500000;
+        final int cheaterRange = 100000;
+        final int suspectRange = 50000;
+        final int normalRange = 10000;
+
+        //flag counts
+        int preferredRangeLog = 0;
+        int cheaterRangeLog = 0;
+        int suspectRangeLog = 0;
+        int normalRangeLog = 0;
+        int brokeRangeLog = 0;
+
+
         int oneMatchAward = locationMatchValue;
         int twoMatchesAward = 10;
         int threeMatchesAward = 500;
@@ -280,6 +294,39 @@ public class Main {
             }
         }
 
+        //now assign flags to users based on winnings
+        for(int i = 0; i < 1000000; i++)
+        {
+            if(cashAwards[i] > preferredRange)
+            {
+                theCustomerFlags[i] = CustomerFlags.PREFERRED;
+                preferredRangeLog++;
+            }
+            else if (cashAwards[i] <= preferredRange && cashAwards[i] > cheaterRange)
+            {
+                theCustomerFlags[i] = CustomerFlags.CHEATER;
+                cheaterRangeLog++;
+            }
+            else if (cashAwards[i] <= cheaterRange && cashAwards[i] > suspectRange)
+            {
+                theCustomerFlags[i] = CustomerFlags.SUSPECT;
+                suspectRangeLog++;
+            }
+            else if (cashAwards[i] <= suspectRange && cashAwards[i] > normalRange)
+            {
+                theCustomerFlags[i] = CustomerFlags.NORMAL;
+                normalRangeLog++;
+            }
+            else
+            {
+                theCustomerFlags[i] = CustomerFlags.BROKE;
+                brokeRangeLog++;
+            }
+
+        }
+
+
+
 
        // System.out.println("The biggest winner is user " + userNumber);
        // System.out.println("And that user won a total of $" + highestSeenSoFar);
@@ -297,6 +344,7 @@ public class Main {
         {
             int winnerID = topFiveWinners[i];
             System.out.println("The next winner is user " + topFiveWinners[i] + " who won $" + cashAwards[winnerID]);
+            System.out.println("The winners flags are " + theCustomerFlags[winnerID]);
         }
 
     }
