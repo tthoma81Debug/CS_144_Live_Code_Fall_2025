@@ -78,17 +78,19 @@ public class Main {
         }
 
 
+
         //lets see the lucky numbers
         for(int i = 0; i < 1000; i++)
         {
             //for every column
-            System.out.println("Row " + i);
             for(int r = 0; r < 1000; r++)
             {
+                System.out.println("Row " + i);
                 System.out.println("Column " + r);
-                System.out.println( luckyNumbers[i][r]);
+                System.out.println("The number in this spot is " + luckyNumbers[i][r]);
             }
         }
+
 
 
         //or we could now use a loop!
@@ -359,8 +361,8 @@ public class Main {
 
 
 
-       // System.out.println("The biggest winner is user " + userNumber);
-       // System.out.println("And that user won a total of $" + highestSeenSoFar);
+        // System.out.println("The biggest winner is user " + userNumber);
+        // System.out.println("And that user won a total of $" + highestSeenSoFar);
 
         //output total matches
 
