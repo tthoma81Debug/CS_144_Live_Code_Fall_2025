@@ -4,6 +4,13 @@ public class Main {
 
     public enum CustomerFlags {BROKE, NORMAL, SUSPECT, CHEATER, PREFERRED};
 
+    static void firstMethod(int incomingNumber)
+    {
+        System.out.println("First Method is WORKING!!!!");
+        System.out.println("The number we received is " + incomingNumber);
+    }
+
+
     public static void main(String[] args)
     {
 
@@ -386,5 +393,14 @@ public class Main {
         System.out.println("Total users in flagged as normal " + normalRangeLog);
         System.out.println("Total users in flagged as broke " + brokeRangeLog);
 
+        int nextLuckyNumber = theGenerator.nextInt(49) + 1;
+        firstMethod(nextLuckyNumber);
+
+        /*
+        for(int i = 0; i < 10; i++)
+        {
+            firstMethod(); //method (or function) call
+        }
+        */
     }
 }
