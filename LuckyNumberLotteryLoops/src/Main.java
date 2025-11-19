@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Random;
 
 public class Main {
@@ -8,6 +9,43 @@ public class Main {
     {
         System.out.println("First Method is WORKING!!!!");
         System.out.println("The number we received is " + incomingNumber);
+    }
+
+
+
+    static void announceLosses(int ourRevenue, int cost, int profitMargin)
+    {
+        System.out.println("Revenue is " + ourRevenue);
+        System.out.println("Expense is " + cost);
+        System.out.println("We uh....are planning profit margin for a later build. sorry");
+
+        if(ourRevenue > cost)
+        {
+            System.out.println("Congratulations! The house wins again");
+        }
+        else
+        {
+            System.out.println("Umm....what went wrong? How can this be? We are supposed to win every time");
+        }
+    }
+
+    static void announceLosses(int revenue, int expense, boolean costOnly)
+    {
+        if(costOnly == true)
+        {
+            System.out.println("we are only printing expenses. not revenue or margin");
+            System.out.println("Expenses are " + expense);
+        }
+        else
+        {
+            System.out.println("We are going to print revnue, expenses, and margin but are too tired because of reasons");
+        }
+
+    }
+
+    static void announceLosses(int cost)
+    {
+        System.out.println("cost is " + cost);
     }
 
 
@@ -270,6 +308,8 @@ public class Main {
         profit = revenue - expense;
         System.out.println("Casino made $" + profit);
 
+
+
         System.out.println("Now lets see who won too much and how much they won");
         //lets find the top winner
         int highestSeenSoFar = -1;
@@ -321,7 +361,7 @@ public class Main {
                 topFiveWinners[3] = userNumber;
             }
         }
-
+announceLosses(0, 1, 5);
         userNumber = 0;
         highestSeenSoFar = 0;
         for(int i = 0; i < 1000000; i++)
@@ -395,6 +435,10 @@ public class Main {
 
         int nextLuckyNumber = theGenerator.nextInt(49) + 1;
         firstMethod(nextLuckyNumber);
+
+        //call the method
+        announceLosses(revenue, expense, 40);
+
 
         /*
         for(int i = 0; i < 10; i++)
