@@ -29,6 +29,11 @@ public class Main {
         }
     }
 
+    static void announceLosses(String firstString, String secondString, String thirdString)
+    {
+        System.out.println("The one with three strings was called");
+    }
+
     static void announceLosses(int revenue, int expense, boolean costOnly)
     {
         if(costOnly == true)
@@ -47,6 +52,30 @@ public class Main {
     {
         System.out.println("cost is " + cost);
     }
+
+
+    static int profitCalculation(int ourRevenue, int ourCost)
+    {
+        int profitOrLoss = ourRevenue - ourCost;
+        return profitOrLoss;
+
+    }
+
+    static int dynamicTicketPrice(int revenue, int cost)
+    {
+        int profitOrLoss = revenue - cost;
+        if(profitOrLoss > 0)
+        {
+            System.out.println("Hmm. should probably lower prices before scrutiny of profits");
+            return 2;
+        }
+        else {
+            System.out.println("Oh no! losing money. Raise the prices!!!");
+            return 5;
+        }
+    }
+
+
 
 
     public static void main(String[] args)
@@ -361,7 +390,7 @@ public class Main {
                 topFiveWinners[3] = userNumber;
             }
         }
-announceLosses(0, 1, 5);
+
         userNumber = 0;
         highestSeenSoFar = 0;
         for(int i = 0; i < 1000000; i++)
@@ -434,10 +463,21 @@ announceLosses(0, 1, 5);
         System.out.println("Total users in flagged as broke " + brokeRangeLog);
 
         int nextLuckyNumber = theGenerator.nextInt(49) + 1;
-        firstMethod(nextLuckyNumber);
+
 
         //call the method
-        announceLosses(revenue, expense, 40);
+        int profitOrLoss = profitCalculation(revenue, expense);
+        System.out.println(" The profit or loss returned from the profitCalculation method is " + profitOrLoss);
+
+        int suggestNewTicketPrice = dynamicTicketPrice(revenue, expense);
+        if(suggestNewTicketPrice >= 5)
+        {
+            System.out.println("Woah. we gotta bring sales up. suggesting " + suggestNewTicketPrice);
+        }
+        else
+        {
+            System.out.println("Too much heat. We are getting too rich. Cool it with ticket price " + suggestNewTicketPrice);
+        }
 
 
         /*
