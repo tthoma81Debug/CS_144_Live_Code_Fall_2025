@@ -11,6 +11,67 @@ public class Main {
         System.out.println("The number we received is " + incomingNumber);
     }
 
+    static boolean hitJackpot(int[] ticketDraw, int[] solutionNumbers)
+    {
+        //see if we hit jackpot
+            boolean hitJackpot = true; //assume hit jackpot
+            for (int i = 0; i < 6; i++) {
+                if (ticketDraw[i] != solutionNumbers[i]) {
+                    //then we have a number that don't match...bummer
+                    hitJackpot = false;
+                    break; //no point in checking further
+                }
+
+            }
+            return hitJackpot;
+    }
+
+    static int adjustJackpot (int revenue, int expense, boolean jackpotAwarded)
+    {
+        int currentProfit = profitCalculation(revenue, expense);
+        int suggestedJackpot;
+
+        if(currentProfit > 2000000)
+        {
+            suggestedJackpot = 1000000;
+        }
+        else if (currentProfit <= 2000000 && currentProfit > 500000)
+        {
+            suggestedJackpot = 200000;
+        }
+        else if (currentProfit <= 500000 && currentProfit > 100000)
+        {
+            suggestedJackpot = 70000;
+        }
+        else if (currentProfit <= 100000 && currentProfit > 0)
+        {
+            suggestedJackpot = currentProfit;
+        }
+        else
+        {
+            suggestedJackpot = 10000;
+        }
+
+        return suggestedJackpot;
+    }
+
+    static void originalJackpotCalc(boolean hitJackpotLog, int revenue, int expense, int  winnings, int ticketPrice)
+    {
+        int profit;
+        //if we hit jackpot, adjust logic, announce it
+        if(hitJackpotLog == true)
+        {
+            System.out.println("INCLUDING JACKPOT!!!!!");
+        }
+        System.out.println("WOW! IN TOTAL, YOU'VE WON $" + winnings);
+
+        revenue = ticketPrice * 1000000;
+        expense = winnings;
+        profit = revenue - expense;
+        System.out.println("Casino made $" + profit);
+
+    }
+
 
 
     static void announceLosses(int ourRevenue, int cost, int profitMargin)
@@ -64,15 +125,19 @@ public class Main {
     static int dynamicTicketPrice(int revenue, int cost)
     {
         int profitOrLoss = revenue - cost;
+        int returnThis;
         if(profitOrLoss > 0)
         {
             System.out.println("Hmm. should probably lower prices before scrutiny of profits");
-            return 2;
+            returnThis = 2;
         }
         else {
             System.out.println("Oh no! losing money. Raise the prices!!!");
-            return 5;
+            returnThis = 5;
         }
+
+        //ok. done now
+        return returnThis;
     }
 
 
@@ -82,6 +147,7 @@ public class Main {
     {
 
         //introducing.....
+        boolean jackpotAwarded = false;
         int locationMatches = 0;
         int locationMatchValue = 8; //for five dollars
         int locationMatchTotal = 0;
@@ -95,6 +161,7 @@ public class Main {
         int revenue = 0;
         int expense = 0;
         int profit = 0;
+        int dynamicJackpotValue;
         boolean hitJackpotLog = false;
         int jackpotValue = 10000000; //10 mil
 
@@ -118,6 +185,7 @@ public class Main {
         int fourMatchesAward = 500000;
         int fiveMatchesAward = 1200000;
         int totalMatchesAward = 0;
+        boolean hitJackpot = true;
 
         //Customer flags
         CustomerFlags exampleFlag = CustomerFlags.BROKE;
@@ -230,20 +298,8 @@ public class Main {
             //for now, check to make sure it's not jackpot
             //if(ticketDraw[0] == solutionNumbers[0] && )
 
-            boolean hitJackpot = true; //assume hit jackpot
-            for (int i = 0; i < 6; i++) {
-                if (ticketDraw[i] != solutionNumbers[i]) {
-                    //then we have a number that don't match...bummer
-                    hitJackpot = false;
-                    break; //no point in checking further
-                }
 
-            }
-
-            if(hitJackpot == true) //if it it still true after the whole loop
-            {
-                hitJackpotLog = true; //log the jackpot
-            }
+           hitJackpot = hitJackpot(ticketDraw, solutionNumbers);
 
 
             //lets try a loop
@@ -304,10 +360,13 @@ public class Main {
             winnings += (normalMatchTotal + totalMatchesAward);
 
             //if won jackpot
+            /* announce jackpot
             if (hitJackpot == true) {
                 winnings += jackpotValue;
                 System.out.println("JACKPOT!!!! WINNER!!!!! WINNER!!!!!!");
             }
+            */
+
 
             System.out.println("normal match total is " + normalMatchTotal);
             System.out.println("Total match award is " + totalMatchesAward);
@@ -326,15 +385,17 @@ public class Main {
         } //end ticket generation loop
         System.out.println("You have " + totalMatchesLog + " total winning numbers");
         System.out.println("AND you have " + locationMatchesLog  + " total MATCHING winning numbers");
-        if(hitJackpotLog == true)
-        {
-            System.out.println("INCLUDING JACKPOT!!!!!");
-        }
-        System.out.println("WOW! IN TOTAL, YOU'VE WON $" + winnings);
+
+
+
 
         revenue = ticketPrice * 1000000;
         expense = winnings;
         profit = revenue - expense;
+
+        originalJackpotCalc(hitJackpot, revenue, expense, winnings, ticketPrice);
+
+
         System.out.println("Casino made $" + profit);
 
 
@@ -466,7 +527,12 @@ public class Main {
 
 
         //call the method
+        dynamicJackpotValue = adjustJackpot(revenue, expense, jackpotAwarded);
+
         int profitOrLoss = profitCalculation(revenue, expense);
+        //subtract jackpot value
+        profitOrLoss -= dynamicJackpotValue;
+
         System.out.println(" The profit or loss returned from the profitCalculation method is " + profitOrLoss);
 
         int suggestNewTicketPrice = dynamicTicketPrice(revenue, expense);
@@ -478,6 +544,10 @@ public class Main {
         {
             System.out.println("Too much heat. We are getting too rich. Cool it with ticket price " + suggestNewTicketPrice);
         }
+
+
+
+
 
 
         /*
