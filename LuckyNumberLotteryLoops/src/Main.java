@@ -11,8 +11,31 @@ public class Main {
         System.out.println("The number we received is " + incomingNumber);
     }
 
+
+    static int doJackpotStuff(int[] ticketDraw, int[] solutionNumbers, int revenue, int expense)
+    {
+        boolean hitJackpot = true;
+        int dynamicJackpotValue = 0;
+
+        hitJackpot = hitJackpot(ticketDraw, solutionNumbers);
+        dynamicJackpotValue = adjustJackpot(revenue, expense, hitJackpot);
+        announceJackpot(hitJackpot, dynamicJackpotValue);
+
+        //determine profit or loss after jackpot numbers
+        return dynamicJackpotValue;
+    }
+
     static boolean hitJackpot(int[] ticketDraw, int[] solutionNumbers)
     {
+        //test logic jackpot
+        ticketDraw[0] = solutionNumbers[0];
+        ticketDraw[1] = solutionNumbers[1];
+        ticketDraw[2] = solutionNumbers[2];
+        ticketDraw[3] = solutionNumbers[3];
+        ticketDraw[4] = solutionNumbers[4];
+        ticketDraw[5] = solutionNumbers[5];
+
+
         //see if we hit jackpot
             boolean hitJackpot = true; //assume hit jackpot
             for (int i = 0; i < 6; i++) {
@@ -69,6 +92,20 @@ public class Main {
         expense = winnings;
         profit = revenue - expense;
         System.out.println("Casino made $" + profit);
+
+    }
+
+    static void announceJackpot(boolean hitJackpot, int currentAward)
+    {
+        if(hitJackpot == true)
+        {
+            System.out.println("WOOOOHOOOOOOO! WE HAVE A JACKPOT!!!!!!");
+            System.out.println("THE JACKPOT AWARD IS " +  currentAward);
+        }
+        else
+        {
+            System.out.println("No jackpot awarded. Sorry....");
+        }
 
     }
 
@@ -147,7 +184,6 @@ public class Main {
     {
 
         //introducing.....
-        boolean jackpotAwarded = false;
         int locationMatches = 0;
         int locationMatchValue = 8; //for five dollars
         int locationMatchTotal = 0;
@@ -299,7 +335,7 @@ public class Main {
             //if(ticketDraw[0] == solutionNumbers[0] && )
 
 
-           hitJackpot = hitJackpot(ticketDraw, solutionNumbers);
+
 
 
             //lets try a loop
@@ -393,7 +429,6 @@ public class Main {
         expense = winnings;
         profit = revenue - expense;
 
-        originalJackpotCalc(hitJackpot, revenue, expense, winnings, ticketPrice);
 
 
         System.out.println("Casino made $" + profit);
@@ -526,14 +561,21 @@ public class Main {
         int nextLuckyNumber = theGenerator.nextInt(49) + 1;
 
 
-        //call the method
-        dynamicJackpotValue = adjustJackpot(revenue, expense, jackpotAwarded);
-
         int profitOrLoss = profitCalculation(revenue, expense);
-        //subtract jackpot value
-        profitOrLoss -= dynamicJackpotValue;
 
-        System.out.println(" The profit or loss returned from the profitCalculation method is " + profitOrLoss);
+        //refined jackpot logic
+        profitOrLoss -= doJackpotStuff(ticketDraw,solutionNumbers,revenue, expense);
+
+
+        //jackpotLogic
+        //hitJackpot = hitJackpot(ticketDraw, solutionNumbers);
+        //dynamicJackpotValue = adjustJackpot(revenue, expense, hitJackpot);
+        //announceJackpot(hitJackpot, dynamicJackpotValue);
+
+        //determine profit or loss after jackpot numbers
+        //end jackpot logic
+
+        System.out.println(" The profit or loss returned from the profitCalculation and after jackpot is " + profitOrLoss);
 
         int suggestNewTicketPrice = dynamicTicketPrice(revenue, expense);
         if(suggestNewTicketPrice >= 5)
