@@ -8,7 +8,7 @@ public class Car
     boolean isLemon;
     boolean isStarted = false;
     double gasLevel = 0;
-
+    int currentSpeed = 0;
 
 
     public void start()
@@ -24,6 +24,22 @@ public class Car
             System.out.println("umm...gas? can't start a car without gas unless it's electric i guess");
         }
     }
+
+    public void accelerate()
+    {
+      if(getStarted() == true)
+      {
+          if(getGasLevel() > 0)
+          {
+              int beforePedalSpeed = getCurrentSpeed();
+              int newSpeed = beforePedalSpeed + 20;
+              setCurrentSpeed(newSpeed);
+              System.out.println("Car is accelerating! and is going " + getCurrentSpeed() + " mph!");
+          }
+      }
+    }
+
+
 
 
     //accessors and mutators
@@ -43,6 +59,15 @@ public class Car
     public boolean getStarted()
     {
         return this.isStarted;
+    }
+
+    public void setCurrentSpeed(int currentSpeed)
+    {
+        this.currentSpeed = currentSpeed;
+    }
+    public int getCurrentSpeed()
+    {
+        return this.currentSpeed;
     }
 
 }
