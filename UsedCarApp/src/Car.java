@@ -33,10 +33,30 @@ public class Car
           {
               int beforePedalSpeed = getCurrentSpeed();
               int newSpeed = beforePedalSpeed + 20;
+              double beforeGasLevel = getGasLevel();
+              double newGasLevel;
               setCurrentSpeed(newSpeed);
               System.out.println("Car is accelerating! and is going " + getCurrentSpeed() + " mph!");
+
+              newGasLevel = beforeGasLevel - 30;
+              if(newGasLevel < 0)
+              {
+                  newGasLevel = 0;
+              }
+
+              setGasLevel(newGasLevel);
+              System.out.println("Gas Level is now " + newGasLevel);
+          }
+          else
+          {
+              System.out.println("You aint got no gas in here and this thing is not electric");
           }
       }
+      else
+      {
+          System.out.println("Car is not started :(. It aint goin nowhere");
+      }
+
     }
 
 
