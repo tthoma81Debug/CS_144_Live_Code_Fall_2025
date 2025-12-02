@@ -1,14 +1,14 @@
 public class Car
 {
-    int mileage;
-    String color;
-    String make;
-    String model;
-    int productionYear;
-    boolean isLemon;
-    boolean isStarted = false;
-    double gasLevel = 0;
-    int currentSpeed = 0;
+    private int mileage;
+    private String color;
+    private String make;
+    private String model;
+    private int productionYear;
+    private boolean isLemon;
+    private boolean isStarted = false;
+    private double gasLevel = 0;
+    private int currentSpeed = 0;
 
 
     public void start()
@@ -72,16 +72,16 @@ public class Car
         return this.gasLevel;
     }
 
-    public void setStarted(boolean isStarted)
+    private void setStarted(boolean isStarted)
     {
         this.isStarted = isStarted;
     }
-    public boolean getStarted()
+    private boolean getStarted()
     {
         return this.isStarted;
     }
 
-    public void setCurrentSpeed(int currentSpeed)
+    private void setCurrentSpeed(int currentSpeed)
     {
         this.currentSpeed = currentSpeed;
     }

@@ -20,6 +20,7 @@ public class Main {
         {
             firstCar.accelerate();
         }
+        firstCar.accelerate();
 
 
 
