@@ -3,6 +3,9 @@
 public class Main {
     public static void main(String[] args)
     {
+
+        otherMethod();
+
         //i want to make a variable that holds a car.
         //what data type do i need?
         // int is number...so miles?
@@ -11,7 +14,19 @@ public class Main {
 
         //declare and init car
         Car firstCar = new Car();
-        Car secondCar = new Car();
+
+        Car secondCar = new Car(50.0);
+        secondCar.start();
+
+        Car.headlightPositionStandard = "new regulations now";
+
+        System.out.println("first car regulations " + firstCar.headlightPositionStandard);
+        System.out.println("Second car regulations " + secondCar.headlightPositionStandard);
+
+
+       // System.out.println(secondCar.getCurrentSpeed());
+
+        //Car thirdCar = new Car(40000, "red", "Honda", "Accord", 1995 );
 
 
 
@@ -40,4 +55,10 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println("end program");
     }
+
+    public static void otherMethod()
+    {
+        System.out.println("other method works");
+    }
+
 }

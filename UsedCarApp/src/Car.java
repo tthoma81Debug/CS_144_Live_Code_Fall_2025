@@ -10,6 +10,8 @@ public class Car
     private double gasLevel = 0;
     private int currentSpeed = 0;
 
+    public static String headlightPositionStandard = "Headlight law 1 (sedan)";
+
 
     public Car()
     {
@@ -21,6 +23,7 @@ public class Car
 
     public Car(double startingGas)
     {
+        System.out.println("Second Constructor Called");
         this.setGasLevel(startingGas);
     }
 
