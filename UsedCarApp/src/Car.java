@@ -11,6 +11,33 @@ public class Car
     private int currentSpeed = 0;
 
 
+    public Car()
+    {
+        System.out.println("Constructing Car");
+        this.setGasLevel(100);
+        this.start();
+        this.accelerate();
+    }
+
+    public Car(double startingGas)
+    {
+        this.setGasLevel(startingGas);
+    }
+
+    public Car(int mileage, String color, String make, String model, int productionYear)
+    {
+        this.mileage = mileage;
+        this.color = color;
+
+        this.make = make;
+        this.model = model;
+
+        this.productionYear = productionYear;
+
+        System.out.println("Crazy long constructor called...");
+    }
+
+
     public void start()
     {
         if(getGasLevel() > 0)

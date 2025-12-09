@@ -13,6 +13,10 @@ public class Main {
         Car firstCar = new Car();
         Car secondCar = new Car();
 
+
+
+
+        /*
         firstCar.setGasLevel(100);
         firstCar.start();
 
@@ -21,7 +25,7 @@ public class Main {
             firstCar.accelerate();
         }
         firstCar.accelerate();
-
+*/
 
 
         /*
