@@ -7,6 +7,7 @@ public class Car
     private String make;
     private String model;
     private int productionYear;
+    public int price;
     private boolean isLemon;
     private boolean isStarted = false;
     private double gasLevel = 0;
@@ -20,16 +21,17 @@ public class Car
     {
         System.out.println("Constructing Car");
         this.setGasLevel(100);
+        randomCarData();
         //this.start();
         //this.accelerate();
     }
 
     public void randomCarData()
     {
-        //generateMiles();
-        //generateMake
-        //generatePurchasePrice
-        //generateColor
+        this.mileage = generateMiles();
+        this.make = generateMake();
+        this.price = generatePurchasePrice();
+        this.color = generateColor();
     }
 
     public int generateMiles()
@@ -59,8 +61,37 @@ public class Car
         {
             theCarMake = "Ford";
         }
-
         return theCarMake;
+    }
+
+    public String generateColor()
+    {
+        int generatedNumber = rand.nextInt(4);
+        String theCarColor;
+
+        if(generatedNumber == 0)
+        {
+            theCarColor = "White";
+        }
+        else if(generatedNumber == 1)
+        {
+            theCarColor = "Black";
+        }
+        else if(generatedNumber == 2)
+        {
+            theCarColor = "Blue";
+        }
+        else
+        {
+            theCarColor = "Red";
+        }
+        return theCarColor;
+    }
+
+    public int generatePurchasePrice()
+    {
+        int thePrice = rand.nextInt(100000) + 1;
+        return thePrice;
     }
 
     public Car(double startingGas)
