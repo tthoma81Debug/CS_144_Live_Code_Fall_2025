@@ -4,17 +4,17 @@ public class Main {
     public static void main(String[] args)
     {
 
-        otherMethod();
-
-        //i want to make a variable that holds a car.
-        //what data type do i need?
-        // int is number...so miles?
-        //string....just a word.
-        //? need custom data type. need object.
+       CarLot theCarLot = new CarLot();
 
         //declare and init car
-        Car firstCar = new Car();
+       Car firstCar = new Car();
 
+       theCarLot.theCarLotArray[0] = firstCar;
+
+       theCarLot.theCarLotArray[0].start();
+
+
+        /*
         Car secondCar = new Car(50.0);
         secondCar.start();
 
@@ -30,7 +30,7 @@ public class Main {
 
 
 
-
+*/
         /*
         firstCar.setGasLevel(100);
         firstCar.start();
@@ -54,6 +54,8 @@ public class Main {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println("end program");
+
+
     }
 
     public static void otherMethod()

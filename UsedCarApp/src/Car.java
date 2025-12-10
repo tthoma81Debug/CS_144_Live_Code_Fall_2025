@@ -17,8 +17,8 @@ public class Car
     {
         System.out.println("Constructing Car");
         this.setGasLevel(100);
-        this.start();
-        this.accelerate();
+        //this.start();
+        //this.accelerate();
     }
 
     public Car(double startingGas)
