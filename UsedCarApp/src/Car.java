@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Car
 {
     private int mileage;
@@ -9,6 +11,7 @@ public class Car
     private boolean isStarted = false;
     private double gasLevel = 0;
     private int currentSpeed = 0;
+    private Random rand = new Random();
 
     public static String headlightPositionStandard = "Headlight law 1 (sedan)";
 
@@ -19,6 +22,45 @@ public class Car
         this.setGasLevel(100);
         //this.start();
         //this.accelerate();
+    }
+
+    public void randomCarData()
+    {
+        //generateMiles();
+        //generateMake
+        //generatePurchasePrice
+        //generateColor
+    }
+
+    public int generateMiles()
+    {
+        int theMiles = rand.nextInt(300000) + 1;
+        return theMiles;
+    }
+
+    public String generateMake()
+    {
+        int generatedNumber = rand.nextInt(4);
+        String theCarMake;
+
+        if(generatedNumber == 0)
+        {
+            theCarMake = "Fiat";
+        }
+        else if(generatedNumber == 1)
+        {
+            theCarMake = "Toyota";
+        }
+        else if(generatedNumber == 2)
+        {
+            theCarMake = "Honda";
+        }
+        else
+        {
+            theCarMake = "Ford";
+        }
+
+        return theCarMake;
     }
 
     public Car(double startingGas)

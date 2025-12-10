@@ -9,9 +9,21 @@ public class Main {
         //declare and init car
        Car firstCar = new Car();
 
-       theCarLot.theCarLotArray[0] = firstCar;
+       for (int i = 0; i < 100; i++)
+       {
+           Car newlyMadeCar = new Car();
+           theCarLot.theCarLotArray[i] = newlyMadeCar;
+       }
 
+       theCarLot.theCarLotArray[67].accelerate();
+
+
+
+
+
+       theCarLot.theCarLotArray[0] = firstCar;
        theCarLot.theCarLotArray[0].start();
+       theCarLot.theCarLotArray[0].accelerate();
 
 
         /*
