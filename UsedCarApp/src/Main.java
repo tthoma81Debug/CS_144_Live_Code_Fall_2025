@@ -15,7 +15,29 @@ public class Main {
            theCarLot.theCarLotArray[i] = newlyMadeCar;
        }
 
-       theCarLot.theCarLotArray[67].accelerate();
+       for(int i = 0; i < 100; i++)
+       {
+           System.out.println("The price of car " + i + " is " + theCarLot.theCarLotArray[i].price);
+       }
+
+       System.out.println("Car " + 67 + " is a " + theCarLot.theCarLotArray[67].make);
+       System.out.println("Car " + 67 + " is worth " + theCarLot.theCarLotArray[67].price);
+
+       Car highestMileageCar = theCarLot.theCarLotArray[0];
+       int index = 0;
+        for(int i = 0; i < 100; i++)
+        {
+            if(theCarLot.theCarLotArray[i].mileage > highestMileageCar.mileage)
+            {
+                highestMileageCar = theCarLot.theCarLotArray[i];
+                index = i;
+            }
+        }
+        System.out.println("The highest mileage car is car " + index  + " with " + highestMileageCar.mileage);
+
+
+
+        //theCarLot.theCarLotArray[67].accelerate();
 
 
 

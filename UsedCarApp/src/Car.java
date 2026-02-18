@@ -2,10 +2,10 @@ import java.util.Random;
 
 public class Car
 {
-    private int mileage;
-    private String color;
-    private String make;
-    private String model;
+    public int mileage;
+    public String color;
+    public String make;
+    public String model;
     private int productionYear;
     public int price;
     private boolean isLemon;
